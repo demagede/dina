@@ -308,32 +308,32 @@
       transition-delay: 0.1s;
     }
 
-    /* Floating WhatsApp Button (Green) - Rounded and expands on hover to show "Dedy MBS" */
+    /* Floating WhatsApp Button (Green) - Squircle shape matching logowa.png, expands on hover to show "Dedy MBS" */
     .float-wa {
       position: fixed;
       z-index: 1030;
       right: 25px;
       bottom: 25px;
-      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      background: #25d366; /* Match exact WhatsApp green */
       color: #fff;
-      border-radius: 50px;
+      border-radius: 12px; /* iOS-style squircle border-radius matching logowa.png */
       width: 50px;
       height: 50px;
-      box-shadow: 0 10px 20px rgba(18, 140, 126, 0.35);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
       text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 0 5px; /* Symmetrical padding to perfectly center the circular image */
+      padding: 0; /* Let the squircle icon fill the container completely */
       overflow: hidden;
       white-space: nowrap;
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease, box-shadow 0.3s ease;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-radius 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease, box-shadow 0.3s ease;
     }
     .float-wa-icon {
       flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
+      width: 50px; /* Fill the 50px space perfectly */
+      height: 50px;
+      border-radius: 12px; /* Maintain the squircle shape of logowa.png */
       object-fit: cover;
     }
     .float-wa-text {
@@ -341,7 +341,8 @@
       font-size: 0.95rem;
       color: #ffffff;
       opacity: 0;
-      margin-left: 8px;
+      margin-left: 10px;
+      margin-right: 15px; /* Padding inside the button on hover */
       transition: opacity 0.2s ease;
       pointer-events: none;
     }
@@ -678,7 +679,8 @@
         </a>
         <!-- Tombol Konsultasi (Remake: Menggunakan logowa.png & Teks Konsultasi) -->
         <a href="https://wa.me/6287783073536?text=Assalaamualaikum%20Pak%20Dedy%20MBS%2C%20saya%20tertarik%20dengan%20info%20program%20Umroh%20Samira%20Travel.%20Mohon%20info%20selengkapnya." target="_blank" class="btn btn-success px-3 py-2 d-inline-flex align-items-center gap-2" style="font-size: 0.95rem; border-radius: 50px;">
-          <img src="logowa.png" alt="WhatsApp" style="width: 20px; height: 20px; border-radius: 4px; object-fit: cover;" onerror="this.onerror=null; this.replaceWith(document.createRange().createContextualFragment('<svg width=\'20\' height=\'20\' viewBox=\'0 0 24 24\' fill=\'currentColor\'><path d=\'M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.455L0 24zm6.79-11.767c-.273-.136-1.62-.8-1.872-.892-.253-.093-.437-.136-.62.136-.184.272-.712.892-.871 1.075-.16.183-.319.206-.593.07-1.16-.58-1.928-1.002-2.69-2.308-.201-.344.201-.319.575-1.066.06-.113.03-.214-.015-.306-.045-.091-.437-1.053-.6-1.448-.158-.38-.333-.328-.458-.334l-.391-.007c-.135 0-.356.05-.542.253-.186.204-.712.696-.712 1.7 0 1.004.73 1.977.831 2.112.101.136 1.436 2.193 3.48 3.078.486.21 1.054.336 1.415.45.501.16.958.138 1.32.083.403-.061 1.62-.662 1.848-1.302.228-.64.228-1.189.16-1.303-.069-.115-.253-.184-.527-.32z\'/></svg>'));">
+          <!-- Gambar WhatsApp beresolusi squircle sesuai logowa.png dengan fallback SVG berkualitas premium yang sama -->
+          <img src="logowa.png" alt="WhatsApp" style="width: 20px; height: 20px; border-radius: 4px; object-fit: cover;" onerror="this.onerror=null; this.replaceWith(document.createRange().createContextualFragment('<svg class=\'svg-wa-hero\' viewBox=\'0 0 512 512\' width=\'20\' height=\'20\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\' style=\'border-radius: 4px;\'><rect width=\'512\' height=\'512\' rx=\'115\' fill=\'#25D366\'/><path d=\'M256.061 83.2c-95.442 0-173.111 77.674-173.111 173.118 0 30.495 7.925 60.273 23.011 86.417l-24.475 89.379 91.439-24.004c24.965 13.606 53.189 20.771 81.986 20.778 0 .004.008.004.011.004 95.429 0 173.109-77.674 173.109-173.118 0-46.251-17.994-89.742-50.686-122.443C345.836 101.194 302.324 83.2 256.061 83.2z\' fill=\'#FFF\'/><path d=\'M256.061 97.468c87.754 0 159.135 71.391 159.141 159.155.003 42.474-16.516 82.422-46.513 112.445-30.012 30.016-69.972 46.541-112.428 46.541-26.471 0-52.433-6.577-75.405-19.083l-5.411-2.909-56.015 14.7 14.945-54.606-3.181-5.068c-13.738-21.899-20.992-47.288-20.985-73.479C106.915 168.86 178.303 97.468 256.061 97.468zm-51.579 91.246c-2.834-6.304-5.819-6.435-8.514-6.546-2.203-.092-4.733-.09-7.258-.09-2.527 0-6.627.949-10.1 4.738-3.471 3.791-13.25 12.946-13.25 31.577s13.567 36.632 15.462 39.158c1.895 2.527 26.697 40.768 64.673 57.124 9.034 3.89 16.082 6.213 21.571 7.954 9.076 2.883 17.34 2.478 23.87 1.503 7.282-1.088 22.404-9.158 25.56-18.001 3.158-8.843 3.158-16.425 2.21-18.003-.947-1.579-3.471-2.526-7.258-4.421-3.788-1.896-22.404-11.045-25.877-12.308-3.472-1.264-6.002-1.895-8.529 1.896-2.526 3.789-9.782 12.308-11.992 14.834-2.209 2.526-4.421 2.842-8.209.946-3.788-1.895-15.991-5.897-30.457-18.804-11.258-10.046-18.861-22.454-21.072-26.245-2.209-3.79-.236-5.836 1.66-7.717 1.703-1.691 3.788-4.421 5.684-6.633 1.894-2.209 2.526-3.789 3.788-6.315 1.263-2.526.632-4.737-.315-6.632-.948-1.895-8.15-20.278-11.373-27.462z\' fill=\'#FFF\'/></svg>'));">
           Konsultasi
         </a>
       </div>
@@ -885,7 +887,7 @@
           <ul class="list-group list-group-custom mt-4">
             <li class="list-group-item">Pembimbing (Mutawwif) bersertifikat, berpengalaman & ramah.</li>
             <li class="list-group-item">Hotel dekat Masjidil Haram & Masjid Nabawi (sesuai paket pilihan).</li>
-            <li class="list-group-item">Manasik terstruktur, matang, dan pendampingan kesehatan lengkap.</li>
+            <li class="list-group-item">Manasik terstruktur, matang, and pendampingan kesehatan lengkap.</li>
             <li class="list-group-item">Layanan dukungan operasional 24 jam untuk seluruh jamaah.</li>
           </ul>
         </div>
